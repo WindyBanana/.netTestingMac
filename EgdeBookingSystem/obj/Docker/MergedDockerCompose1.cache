@@ -1,9 +1,17 @@
 services:
   db:
+    command: sh -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: Password123@
-    image: microsoft/mssql-server-linux
+    image: microsoft/mssql-server-linux:latest
+    ports:
+    - published: 1433
+      target: 1433
+    volumes:
+    - C:\Users\nerga\Bachelor\dockerTest\Go4IT\EgdeBookingSystem\sql:/usr/src/app:rw
+    - /var/opt/mssql
+    working_dir: /usr/src/app
   egdebookingsystem:
     build:
       context: C:\Users\nerga\Bachelor\dockerTest\Go4IT\EgdeBookingSystem

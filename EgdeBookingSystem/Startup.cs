@@ -31,7 +31,7 @@ namespace EgdeBookingSystem
             {
                 // Database connection string.
                 // Make sure to update the Password value below from "your_password" to your actual password.
-                var connection = @"Server=db;Database=master;User=sa;Password=Password123@;";
+                var connection = @"Server=db;Database=Equipment;User=sa;Password=Password123@;";
 
                 // This line uses 'UseSqlServer' in the 'options' parameter
                 // with the connection string defined above.
@@ -41,7 +41,7 @@ namespace EgdeBookingSystem
                     .AddEntityFrameworkStores<ApplicationDbContext>();
                 services.AddRazorPages();
             
-                services.AddMvc();
+              //  services.AddMvc();
 
                 // Add application services.
            //     services.AddTransient<IEmailSender, AuthMessageSender>();
